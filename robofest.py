@@ -23,7 +23,7 @@ def generate_robofest_certificate(date:str, student_name:str, grade:str, schoolN
     c.drawCentredString(480, 275,  schoolName) 
 
     # Studetn's project name
-    c.drawCentredString(400, 195,  projectName)
+    c.drawCentredString(475, 195,  projectName)
 
     # Robofest Conducted date
     c.drawCentredString(350, 150,  date) 
