@@ -48,7 +48,7 @@ def generate_cs_robotics_certificate(schoolName:str, grade:str, student_name:str
     c.drawCentredString(280, 320,  grade.split()[1])  # Adjust coordinates
 
     # School Name
-    c.drawCentredString(470, 280, schoolName.upper()) 
+    c.drawCentredString(490, 280, schoolName.upper()) 
 
     # Titles and Experties
     if cert_type == "CS":
