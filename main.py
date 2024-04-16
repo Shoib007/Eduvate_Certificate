@@ -60,7 +60,9 @@ for school_file in data_files:
             elif args.cert_type == "ROBOFEST":
                 if row[0] is None:
                     break
-                date = str(row[0])
+                
+                # Convert the date string to datetime object by removing 00:00:00
+                date = datetime.strptime(str(row[0]), '%Y-%m-%d %H:%M:%S').strftime('%d-%m-%Y')
                 student_name = row[1].upper()
                 grade = str(row[2])
                 projectName = row[4].upper()

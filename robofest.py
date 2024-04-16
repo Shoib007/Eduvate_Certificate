@@ -26,7 +26,7 @@ def generate_robofest_certificate(date:str, student_name:str, grade:str, schoolN
     c.drawCentredString(475, 195,  projectName)
 
     # Robofest Conducted date
-    c.drawCentredString(350, 150,  date) 
+    c.drawCentredString(350, 150,  date)
     
     # Todays Date
     c.setFont("Helvetica", 12)
@@ -38,3 +38,4 @@ def generate_robofest_certificate(date:str, student_name:str, grade:str, schoolN
     c.drawCentredString(700, 10, str(uuid4()))
 
     c.save()
+
