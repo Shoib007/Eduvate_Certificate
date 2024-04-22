@@ -2,6 +2,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, landscape
 from datetime import datetime
 from uuid import uuid4
+from wrapper import getWrapedText
 
 today = datetime.today().strftime("%d/%m/%Y")
 
@@ -23,7 +24,8 @@ def generate_robofest_certificate(date:str, student_name:str, grade:str, schoolN
     c.drawCentredString(480, 275,  schoolName) 
 
     # Studetn's project name
-    c.drawCentredString(475, 195,  projectName)
+    getWrapedText(canvas=c, text=projectName, width=400, x_position=475, y_position=195, font_size=20)
+    # c.drawCentredString(475, 195,  projectName)
 
     # Robofest Conducted date
     c.drawCentredString(350, 150,  date)

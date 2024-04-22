@@ -40,6 +40,7 @@ def generate_cs_robotics_certificate(schoolName:str, grade:str, student_name:str
     # Customize certificate with data
     c.setFont(FONT, 24)
     c.setFillColorRGB(0, 0, 0)
+    
     # Student Name
     c.drawCentredString(420, 355, student_name)  # Adjust coordinates
     c.setFont(FONT, 20)
