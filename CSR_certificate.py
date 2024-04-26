@@ -1,33 +1,12 @@
 from datetime import datetime
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, landscape
+from utils import CS_ROBOTICS_COMBINED_TITLES, ROBOTICS_TITLE_EXPERTIES, CS_TITLE_EXPERTIES
 
-FONT = "Helvetica"
 
-cs_title_experties = {
-    "GRADE 1": ["Emerging Coder", "Block Based Coding"],
-    "GRADE 2": ["Junior Coder", "Block Based Coding"],
-    "GRADE 3": ["Pro Coder", "Block Based Coding"],
-    "GRADE 4": ["Emerging App Develoer", "App Lab"],
-    "GRADE 5": ["Pro App Develoer", "MIT App Inventor"],
-    "GRADE 6": ["Junior Web Develoer", "Web Development"],
-    "GRADE 7": ["Pro Web Develoer", "Web Development"],
-    "GRADE 8": ["Junior Pythonista", "Python 3"],
-    "GRADE 9": ["Emerging AI Developer", "Artificial Intelligence"],
-}
-
-robotics_title_experties = {
-    "GRADE 1": ["Emerging Technologist", "DIY & Electronics"],
-    "GRADE 2": ["Emerging Technologist", "DIY & Electronics"],
-    "GRADE 3": ["Emerging Technologist", "DIY & Electronics"],
-    "GRADE 4": ["Emerging Electroniker", "Electronics"],
-    "GRADE 5": ["Junior Electroniker", "Electronics & Arduino"],
-    "GRADE 6": ["Junior Arduino Coder", "Arduino"],
-    "GRADE 7": ["Expert Arduino Coder", "Arduino"],
-    "GRADE 8": ["Emerging IoT Developer", "IoT & ESP32"],
-    "GRADE 9": ["Junior IoT Developer", "IoT & ESP32"],
-    "GRADE 10": ["Expert IoT Developer", "IoT & ESP32"],
-}
+NAME_FONT = "Roboto-Italic"
+SCHOOL_FONT = "Roboto-Italic"
+TITLE_FONT = "Roboto-Italic"
 
 
 # Get current date in DD/MM/YYYY format
@@ -38,27 +17,35 @@ def generate_cs_robotics_certificate(schoolName:str, grade:str, student_name:str
     c.drawImage(template_path, 0, 0, landscape(A4)[0], landscape(A4)[1])
 
     # Customize certificate with data
-    c.setFont(FONT, 24)
+    c.setFont(NAME_FONT, 28)
     c.setFillColorRGB(0, 0, 0)
     
     # Student Name
     c.drawCentredString(420, 355, student_name)  # Adjust coordinates
-    c.setFont(FONT, 20)
+    # c.setFont(FONT, 20)
+    c.setFont(SCHOOL_FONT, 22)
 
     # Grade
     c.drawCentredString(280, 320,  grade.split()[1])  # Adjust coordinates
 
     # School Name
-    c.drawCentredString(490, 280, schoolName.upper()) 
+    c.drawCentredString(490, 280, schoolName) 
+
+    # Font for the Title and Experties
+    c.setFont(TITLE_FONT, 20)
 
     # Titles and Experties
     if cert_type == "CS":
-        c.drawCentredString(550, 235, cs_title_experties[grade][0].upper())
-        c.drawCentredString(420, 160, cs_title_experties[grade][1].upper())
-    else:
-        c.drawCentredString(550, 235, robotics_title_experties[grade][0].upper())
-        c.drawCentredString(420, 160, robotics_title_experties[grade][1].upper())
-    c.setFont(FONT, 12)
+        c.drawCentredString(550, 235, CS_TITLE_EXPERTIES[grade][0])
+        c.drawCentredString(420, 160, CS_TITLE_EXPERTIES[grade][1])
+    elif cert_type == "ROBOTICS":
+        c.drawCentredString(550, 235, ROBOTICS_TITLE_EXPERTIES[grade][0])
+        c.drawCentredString(420, 160, ROBOTICS_TITLE_EXPERTIES[grade][1])
+    elif cert_type == "CSR_COMBO":
+        c.drawCentredString(550, 235, CS_ROBOTICS_COMBINED_TITLES[grade][0])
+        c.drawCentredString(420, 160, CS_ROBOTICS_COMBINED_TITLES[grade][1])
+
+    c.setFont(SCHOOL_FONT, 12)
     c.drawCentredString(180, 110, today)
 
     c.save()
