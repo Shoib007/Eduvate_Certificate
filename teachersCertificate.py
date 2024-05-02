@@ -22,13 +22,13 @@ def generate_teachers_certificate(teacher_name, grades, school_name, total_hr_of
     c.setFont(SCHOOL_FONT, 15)
     
     # Total hours of Training
-    c.drawCentredString(380, 277,  total_hr_of_training)
+    # c.drawCentredString(380, 277,  total_hr_of_training)
 
     # Subject
-    c.drawCentredString(564, 277,  subject)
+    c.drawCentredString(502, 277,  subject)
 
     # Training's grades
-    c.drawCentredString(710, 277,  grades)
+    c.drawCentredString(650, 277,  grades)
 
     
     # School Name

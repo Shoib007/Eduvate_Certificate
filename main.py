@@ -111,7 +111,7 @@ for data in data_files:
                     generate_teachers_certificate(teacher_name, grades, school_name, total_hr_of_training, folder, teacher_template, subject="Robotics")
                 
                 print(f"Certificate for {teacher_name} -> {args.cert_type} created successfully!")
-                # break
+                
 
 
     if not args.cert_type == "TEACHER":
