@@ -49,3 +49,9 @@ def generate_cs_robotics_certificate(schoolName:str, grade:str, student_name:str
     c.drawCentredString(180, 110, today)
 
     c.save()
+
+
+if __name__ == "__main__":
+    print("Main Process")
+else:
+    print("Imported")
