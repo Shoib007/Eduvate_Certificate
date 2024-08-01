@@ -45,7 +45,8 @@ pdfmetrics.registerFont(TTFont("Roboto-Italic", "Roboto-Italic.ttf"))
 
 # Main Logic for generating certificates
 for data in data_files:
-    schoolName = data.split(".")[0]
+    dot_index = data.rfind(".")
+    schoolName = data[:dot_index]
     print(f"Creating certificate for {schoolName} -> {args.cert_type} ...")
 
     # Load the school sheet
@@ -93,7 +94,7 @@ for data in data_files:
                     break
 
                 teacher_name = row[0].title()
-                school_name = row[1].title()
+                school_name = row[1]
                 total_hr_of_training = row[2]
                 grades = row[3]
 

@@ -2,7 +2,6 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, landscape
 
 from uuid import uuid4
-from wrapper import getWrapedText
 
 # Fonts for the certificate
 NAME_FONT = "Roboto-Italic"
@@ -32,7 +31,7 @@ def generate_teachers_certificate(teacher_name, grades, school_name, total_hr_of
 
     
     # School Name
-    c.drawCentredString(550, 257,  school_name)
+    c.drawCentredString(525, 257,  school_name)
 
 
 
