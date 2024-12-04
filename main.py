@@ -2,7 +2,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 import openpyxl, os, argparse
 from robofestCertificate import generate_robofest_certificate
-from CSR_Certificate import generate_cs_robotics_certificate
+from CSR_certificate import generate_cs_robotics_certificate
 from teachersCertificate import generate_teachers_certificate
 from datetime import datetime
 
@@ -87,8 +87,8 @@ for data in data_files:
                 folder = os.path.join(cwd, output_folder, schoolName , args.cert_type)
                 if not os.path.exists(folder):
                     os.makedirs(folder)
-
                 generate_robofest_certificate(date, student_name, grade, schoolName, projectName, output_folder=folder, template_path=Robofest_template)
+
             elif args.cert_type == "TEACHER":
                 if row[0] is None:
                     break
@@ -108,7 +108,6 @@ for data in data_files:
 
                 elif args.subject == "CSR":
                     generate_teachers_certificate(teacher_name, grades, school_name, total_hr_of_training, folder, teacher_template, subject="Computer Science")
-
                     generate_teachers_certificate(teacher_name, grades, school_name, total_hr_of_training, folder, teacher_template, subject="Robotics")
                 
                 print(f"Certificate for {teacher_name} -> {args.cert_type} created successfully!")
