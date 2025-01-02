@@ -95,7 +95,7 @@ for data in data_files:
 
                 teacher_name = row[0].title()
                 school_name = row[1]
-                total_hr_of_training = row[2]
+                total_hr_of_training = str(row[2])
                 grades = row[3]
 
                 folder = os.path.join(output_folder, school_name, args.subject )
